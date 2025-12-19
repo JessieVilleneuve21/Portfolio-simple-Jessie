@@ -1,0 +1,479 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    max-width: 100%;
+}
+
+/* ===== GLOBAL ===== */
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #eaeaea;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    background: url("Assets/Images/Motif.jpg") repeat;
+}
+
+/* ===== HEADER ===== */
+.menu {
+    position: absolute;
+    width: 100vw;
+    height: 32px;
+    background: #000000a1;
+    z-index: 20;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+}
+.menu a {
+    margin: 4px 10px;
+}
+
+.header {
+    width: 100vw;
+    height: 740px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.header-left {
+    width: 30%;
+    padding: 80px;
+    background: #000000;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    z-index: 10
+}
+
+.titre-page {
+    font-size: 32px;
+    position: absolute;
+    z-index: 12;
+    width: 100vw;
+    height: 100%;
+}
+ .header-moi {
+    font-size: 32px;
+    position: absolute;
+    z-index: 5;
+    left: 10%;
+    bottom: 31%;
+}
+
+.purp-bloc-h {
+    position: absolute;
+    z-index: 2;
+    width: 30%;
+    height: 3%;
+    left: 9%;
+    bottom: 30%;
+    background: #72308E;
+}
+
+ h1 {
+    position: absolute;
+    z-index: 15;
+    left: 15%;
+    bottom: 25%;
+    font-size: 48px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* =========================
+   DIAGONAL LOOPING TEXT PATTERN
+   ========================= */
+
+/* PATTERN LAYER */
+.pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* behind header text */
+    pointer-events: none;
+    /* mix-blend-mode: overlay; optional polish */
+    mix-blend-mode: normal;
+}
+
+/* SINGLE ROWS */
+.pattern-inner {
+    position: absolute;
+    width: 220%;
+    height: 220%;
+    top: -30%;
+    left: -30%;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    transform: rotate(35deg);
+    z-index: 2;
+}
+
+.pattern-row {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    width: max-content;
+    white-space: nowrap;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+    color: #ffffff;
+
+    animation-name: row-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    /* Add some padding inside each row */
+    padding-left: 30px;
+    /* push right */
+    /* push down */
+}
+
+/* DUPLICATE CONTENT FOR SEAMLESS LOOP */
+.pattern-row::after {
+    content: attr(data-text);
+    padding-left: 0px;
+}
+
+/* BASE ANIMATION */
+@keyframes row-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* RANDOM SPEED + OPACITY PRESETS */
+.pattern-row:nth-child(1) {
+    padding-top: 200px;
+    animation-duration: 37s;
+    opacity: 0.23;
+}
+
+.pattern-row:nth-child(2) {
+    animation-duration: 19s;
+    opacity: 0.38;
+}
+
+.pattern-row:nth-child(3) {
+    animation-duration: 29s;
+    opacity: 0.15;
+}
+
+.pattern-row:nth-child(4) {
+    animation-duration: 34s;
+    opacity: 0.32;
+}
+
+.pattern-row:nth-child(5) {
+    animation-duration: 41s;
+    opacity: 0.21;
+}
+
+.pattern-row:nth-child(6) {
+    animation-duration: 25s;
+    opacity: 0.18;
+}
+
+.pattern-row:nth-child(7) {
+    animation-duration: 43s;
+    opacity: 0.28;
+}
+
+.pattern-row:nth-child(8) {
+    animation-duration: 17s;
+    opacity: 0.14;
+}
+
+.pattern-row:nth-child(9) {
+    animation-duration: 22s;
+    opacity: 0.39;
+}
+
+.pattern-row:nth-child(10) {
+    animation-duration: 30s;
+    opacity: 0.19;
+}
+
+.pattern-row:nth-child(11) {
+    animation-duration: 27s;
+    opacity: 0.33;
+}
+
+.pattern-row:nth-child(12) {
+    animation-duration: 39s;
+    opacity: 0.12;
+}
+
+.pattern-row:nth-child(13) {
+    animation-duration: 20s;
+    opacity: 0.31;
+}
+
+.pattern-row:nth-child(14) {
+    animation-duration: 44s;
+    opacity: 0.16;
+}
+
+.pattern-row:nth-child(15) {
+    animation-duration: 35s;
+    opacity: 0.26;
+}
+
+/* optional direction variation */
+.pattern-row:nth-child(even) {
+    animation-direction: reverse;
+}
+
+/* ===== HEADER VIDEO ===== */
+.header-video {
+    width: 70%;
+    position: relative;
+    z-index: 1;
+}
+
+.header-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== BREADCRUMB ===== */
+.arriane {
+    width: 100%;
+    height: 50px;
+    background: #212121;
+    align-content: center;
+}
+
+.arriane p {
+    color: #7b7b7b;
+    font-size: 24px;
+    padding-left: 20px;
+}
+
+/* ===== PAGE ===== */
+.page {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+/* ===== TITLES ===== */
+.section-title {
+    font-size: 64px;
+    margin: 120px 0 80px 120px;
+    position: relative;
+    z-index: 3;
+}
+
+.section-title::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    left: 40px;
+    bottom: -12px;
+    width: 340px;
+    height: 40px;
+    background: #7b3fa0;
+}
+
+/* ===== PROJECTS ===== */
+.project {
+    display: flex;
+    align-items: center;
+    padding: 0 120px 120px;
+    gap: 120px;
+}
+
+.project.reverse {
+    flex-direction: row-reverse;
+}
+
+.media {
+    position: relative;
+    width: 520px;
+    height: 520px;
+    /* background: #57cfc4; */
+}
+
+.media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-text {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    font-weight: 600;
+    color: white;
+    opacity: 0.7;
+}
+
+.label {
+    position: absolute;
+    bottom: -40px;
+    right: -28px;
+    background: #7b3fa0;
+    padding: 14px 18px;
+    font-size: 14px;
+    max-width: 260px;
+}
+.fake-label {
+    position: absolute;
+    z-index: -1;
+    bottom: -20px;
+    left: -28px;
+    background: #381248;
+    padding: 14px 18px;
+    font-size: 14px;
+    height: 500px;
+    width: 500px;
+}
+
+.label-rev {
+    position: absolute;
+    bottom: -40px;
+    left: -28px;
+    background: #7b3fa0;
+    padding: 14px 18px;
+    font-size: 14px;
+    max-width: 260px;
+}
+.fake-label-rev {
+    position: absolute;
+    z-index: -1;
+    bottom: -20px;
+    right: -28px;
+    background: #381248;
+    padding: 14px 18px;
+    font-size: 14px;
+    height: 500px;
+    width: 500px;
+}
+
+.label.small {
+    max-width: 120px;
+}
+
+.text {
+    width: 420px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.text a {
+    display: inline-block;
+    margin-top: 24px;
+    color: white;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+hr {
+    border: none;
+    border-top: 4px solid #707070;
+    margin: 0 120px 120px;
+}
+
+
+.about {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.about a {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    text-align: center;
+    
+    display: inline-block;
+    margin-left: 40%;
+}
+.dernier-hr {
+    margin-top: 120px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #212121;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 20px;
+    margin: 0px auto;
+    padding: 20px 0;
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 12px;
+}
+a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+a:hover {
+    color: #7b3fa0;
+}
+footer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+footer div{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+} 
+.footer-logo{
+    margin-right: 10px;
+    width:auto;
+    height: 32px;
+}
+
+/* ===== MOBILE (STACK ONLY, NO REDESIGN) ===== */
+@media (max-width: 1024px) {
+
+    .hero,
+    .page,
+    footer {
+        width: 100%;
+    }
+
+    .hero {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .project,
+    .project.reverse {
+        flex-direction: column;
+        padding: 0 40px 80px;
+        gap: 40px;
+    }
+
+    .section-title {
+        margin-left: 40px;
+    }
+
+    hr {
+        margin: 0 40px 80px;
+    }
+}
